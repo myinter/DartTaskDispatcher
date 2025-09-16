@@ -74,6 +74,7 @@ void main() {
 
   // 提交任务 / Dispatch a task
   TaskDispatcher().dispatchTask(() async {
+    // 模拟一个耗时任务 / Simulate a time-consuming task
     await Future.delayed(Duration(seconds: 2));
     return '任务完成'; // Task finished
   }, onComplete: (result) {
@@ -92,6 +93,7 @@ void main() async {
   dispatcher.initializePool(poolSize: 3);
 
   final result = await dispatcher.dispatch<int>(() async {
+    // 模拟一个耗时任务 / Simulate a time-consuming task
     await Future.delayed(Duration(seconds: 1));
     return 42; // 返回任务结果 / Return task result
   });
